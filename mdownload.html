@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
+    <title>东京湾app</title>
+
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      html{
+        font-size: 62.5%;
+        height: 100%;
+      }
+
+      body{
+        height: 100%;
+        background: #fafafa;
+        padding-bottom: 6rem;
+        box-sizing: border-box;
+      }
+
+      .context{
+        display: flex;
+        flex-direction:column;
+        height: 100%;
+      }
+
+      .logo{
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .logo img{
+        width: 7.4rem;
+      }
+
+      .logo h2{
+        background-image: linear-gradient(#51c6ea,#309df0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 1.6rem;
+        margin-top: 1.4rem;
+      }
+
+      .body{
+        flex-grow: 1;
+        background: url('./assets/phone_background.png') center top no-repeat;
+        background-size: auto 100%;
+      }
+
+      .footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 6rem;
+        width: 100%;
+        background: #29282c;
+      }
+
+      #button{
+        width: 70%;
+        height: 3.8rem;
+        line-height: 3.8rem;
+        text-align: center;
+        border-radius: 2rem;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-image: linear-gradient(#51c6ea,#309df0);
+        color: #ffffff;
+        font-size: 1.6rem;
+        box-shadow: 0px 1px 6px rgba(52,162,239,0.5);
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="context">
+      <div class="logo">
+        <img src="./assets/phone_logo.png" alt="">
+        <h2>东京湾智能门禁</h2>
+      </div>
+      <div class="body">
+
+      </div>
+    </div>
+    <div class="footer">
+      <div id="button">
+        下载ios版东京湾
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+    if(isAndroid){
+      document.querySelector('#button').innerHTML = "下载Android版东京湾";
+    } else if(isiOS) {
+      document.querySelector('#button').innerHTML = "下载IOS版东京湾";
+    } else {
+      document.querySelector('#button').innerHTML = "暂不支持的版本";
+    }
+  </script>
+</html>
